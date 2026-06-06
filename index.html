@@ -5,13 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac_Toe Game</title>
     <link rel ="stylesheet" href="style9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- <h1>Hi</h1> -->
      <div class="msg-container hide">
         <p id="msg">Winner</p>
-        <button id="new_btn">New Game</button>
+        <div style="display: flex; gap: 20px; justify-content: center;">
+            <button id="new_btn"><i class="fa-solid fa-gamepad"></i> New Game</button>
+            <button id="msg_home_btn"><i class="fa-solid fa-house"></i> Home</button>
+        </div>
      </div>
+    <div id="mode-selection">
+        <div class="how-to-play">
+            <h2 class="htp-heading">How to Play</h2>
+            <div class="htp-box">
+                <ul>
+                    <li>Take turns placing X and O.</li>
+                    <li>Get 3-in-a-row to win.</li>
+                    <li>Fill the grid for a draw.</li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="title-symbols">
+            <span class="symbol-x">X</span>
+            <span class="symbol-o">O</span>
+        </div>
+
+        <h1>Choose Game Mode</h1>
+        <div class="mode-buttons">
+            <button id="btn_2player">2 Player (vs Friend)</button>
+            <button id="btn_computer">vs Computer</button>
+        </div>
+    </div>
+
+    <div id="game-screen" class="hide">
+        <div id="difficulty-panel" class="hide">
+            <h3>Difficulty Level</h3>
+            <div class="diff-options">
+                <button id="btn_normal" class="diff-btn active">Normal</button>
+                <button id="btn_hard" class="diff-btn">Hard</button>
+            </div>
+        </div>
+        
+        <div id="first-move-panel" class="hide">
+            <h3>First Move</h3>
+            <div class="diff-options">
+                <button id="btn_start_o" class="diff-btn active">Player O</button>
+                <button id="btn_start_x" class="diff-btn">Player X</button>
+            </div>
+        </div>
     <main>
         <h1>Tic Tac Toe</h1>
         <div class="container">
@@ -27,8 +73,12 @@
                 <button class="box"></button>
             </div>
         </div>
-        <button id ="reset_btn">Reset Game</button>
+        <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
+            <button id="reset_btn"><i class="fa-solid fa-rotate-right"></i> Restart</button>
+            <button id="home_btn"><i class="fa-solid fa-house"></i> Home</button>
+        </div>
     </main>
+    </div>
     <script src="x&o_app.js"></script>
 </body>
 </html>

@@ -2,6 +2,8 @@
  *{
     margin: 0px;
     padding: 0px;
+    user-select: none;
+    -webkit-user-select: none;
  }
  h1{
     margin-top: 50px;
@@ -35,32 +37,50 @@
     color: crimson;
     background-color: bisque;
  }
- #reset_btn{
+ #reset_btn, #home_btn {
     padding : 1rem;
     background-color: darkblue;
     color: wheat;
     font-size: 1.25rem;
     border-radius: 1rem;
     border: none;
-    margin-bottom: 20px;
+    cursor: pointer;
  }
 
- #new_btn{
-    padding : 1rem;
+ #new_btn, #msg_home_btn {
+    padding: 1rem 2rem;
     background-color: darkblue;
-    color: wheat;
+    color: white;
     font-size: 1.25rem;
     border-radius: 1rem;
     border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    transition: transform 0.2s, background-color 0.2s;
  }
 
- #msg{
-   color:bisque;
-   font-size: 5vmin;
+ #new_btn:hover, #msg_home_btn:hover {
+    background-color: #0000cd;
+    transform: scale(1.05);
+ }
+
+ #msg {
+   color: #ffff00;
+   font-size: 8vmin;
+   font-weight: bold;
+   text-transform: uppercase;
+   text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+   margin-bottom: 2rem;
  }
 
  .msg-container{
- height: 100vmin;
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ background-color: rgba(138, 43, 226, 0.9); /* Translucent purple */
+ z-index: 100;
  display: flex;
  justify-content: center;
  align-items: center;
@@ -69,5 +89,157 @@
  }
 
  .hide{
-   display: none;
+   display: none !important;
+ }
+
+ #mode-selection {
+   position: relative;
+   height: 100vmin;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+ }
+
+ .how-to-play {
+   position: absolute;
+   top: 2rem;
+   left: 2rem;
+   text-align: left;
+ }
+
+ .htp-heading {
+   color: #00ff00;
+   margin-bottom: 0.5rem;
+   font-size: 1.5rem;
+   text-transform: uppercase;
+   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+ }
+
+ .htp-box {
+   border: 3px solid #ffcc00;
+   border-radius: 12px;
+   padding: 1rem;
+   background: rgba(255, 255, 255, 0.1);
+   backdrop-filter: blur(5px);
+   box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+   color: white;
+ }
+
+ .htp-box ul {
+   list-style-position: inside;
+   padding-left: 0;
+ }
+
+ .htp-box li {
+   margin-bottom: 0.5rem;
+   font-size: 1.1rem;
+ }
+
+ .title-symbols {
+   display: flex;
+   gap: 2rem;
+   margin-bottom: 1rem;
+ }
+
+ .symbol-x, .symbol-o {
+   font-size: 13rem;
+   font-weight: bold;
+   font-family: sans-serif;
+   filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+ }
+
+ .symbol-x {
+   background: linear-gradient(135deg, #ff9933, #ff4500);
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+ }
+
+ .symbol-o {
+   background: linear-gradient(135deg, #00ffff, #008080);
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+ }
+
+ .mode-buttons {
+   margin-top: 20px;
+   transform: translateY(-2rem);
+ }
+
+ #mode-selection button {
+   padding: 1rem;
+   background-color: darkblue;
+   color: white;
+   font-size: 1.25rem;
+   border-radius: 1rem;
+   border: none;
+   cursor: pointer;
+   margin: 0 10px;
+   transition: transform 0.2s, background-color 0.2s;
+ }
+
+ #mode-selection button:hover, #reset_btn:hover, #home_btn:hover {
+   background-color: navy;
+   transform: scale(1.05);
+ }
+
+ #mode-selection h1 {
+   transform: translateY(-2rem);
+   margin-top: 20px;
+ }
+
+ #difficulty-panel, #first-move-panel {
+   position: absolute;
+   top: 40%;
+   transform: translateY(-50%);
+   background: rgba(0, 0, 0, 0.4);
+   padding: 1.5rem;
+   border-radius: 12px;
+   box-shadow: 4px 4px 15px rgba(0,0,0,0.5);
+   color: white;
+   text-align: center;
+   border: 2px solid #555;
+ }
+
+ #difficulty-panel {
+   left: 2rem;
+ }
+
+ #first-move-panel {
+   right: 2rem;
+ }
+
+ #difficulty-panel h3, #first-move-panel h3 {
+   margin-bottom: 1rem;
+   color: #ff9933;
+ }
+
+ .diff-options {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+ }
+
+ .diff-btn {
+   padding: 0.8rem 1.5rem;
+   background-color: darkblue;
+   color: wheat;
+   font-size: 1.1rem;
+   border-radius: 8px;
+   border: 2px solid transparent;
+   cursor: pointer;
+   transition: all 0.3s;
+ }
+
+ .diff-btn.active {
+   background-color: #007bff;
+   border: 2px solid #00ffff;
+   box-shadow: 0 0 10px #00ffff;
+   color: white;
+ }
+
+ .diff-btn:hover {
+   transform: scale(1.05);
  }
